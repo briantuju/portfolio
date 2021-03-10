@@ -1,7 +1,9 @@
 export default function Home() {
   return (
-    <div>
-      <h1>Brian Tuju's Portfolio</h1>
-    </div>
+    <>
+      <main>
+        <h1>Brian Tuju's Portfolio</h1>
+      </main>
+    </>
   );
 }
