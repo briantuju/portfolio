@@ -1,15 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
     <div>
       <nav>
         <div className="logo">
-          <h1>Tuju</h1>
+          <Link href="/">
+            <a>
+              <Image src="/brian.jpg" width={50} height={40} />
+            </a>
+          </Link>
         </div>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
 
         <Link href="/about">
           <a>About</a>
@@ -17,6 +19,10 @@ export default function Navbar() {
 
         <Link href="/projects">
           <a>Projects</a>
+        </Link>
+
+        <Link href="/work">
+          <a>Work</a>
         </Link>
 
         <Link href="/contact">
