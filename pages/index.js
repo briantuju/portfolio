@@ -8,9 +8,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Welcome to my protfolio</h1>
-      </main>
+      <h1>Welcome to my protfolio</h1>
     </div>
   );
 }
