@@ -1,0 +1,35 @@
+// Colors
+$color-red: #d6122d;
+$color-green: #16a150;
+$color-blue: #0947aa;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-info: #0caada;
+$color-link: #bb139f;
+$color-grey: #a8a8a8;
+$color-grey-light: lighten($color-grey, 5);
+$color-dark: #1a1a1a;
+
+// Font size
+$default-font-size: 1.5rem;
+
+// Shadows
+$shadow: 0 0.5rem 3rem rgba($color-black, 0.09);
+$shadow-small: 0rem 0.25rem 2rem 0rem rgba($color-black, 0.06);
+$shadow-big: 0 0.75rem 4rem rgba($color-black, 0.12);
+
+// Border
+$border-small: 1px solid $color-grey-light;
+$border-medium: 3px solid $color-grey-light;
+$border-big: 5px solid $color-grey-light;
+
+// Border Radius
+$brad-tiny: 0.35rem;
+$brad-small: 0.5rem;
+$brad-medium: 0.75rem;
+$brad-big: 1rem;
+$brad-huge: 1.5rem;
+
+// Viewport
+$tablet: 768px;
+$desktop: 1025px;

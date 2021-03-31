@@ -1,0 +1,23 @@
+@use './variables';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 75%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font: variables.$default-font-size "Lato", sans-serif;
+  color: variables.$color-dark;
+  background-color: variables.$color-white;
+  box-sizing: border-box;
+  line-height: 1.7;
+  height: 100%;
+}
