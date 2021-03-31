@@ -1,0 +1,30 @@
+@use '../variables' as var;
+@use '../functions' as func;
+
+// Nav styles
+.nav {
+  &__list {
+    padding: func.spacer(0.5);
+    text-align: center;
+  }
+
+  &__item {
+    display: inline-block;
+    padding: func.spacer(0.25);
+
+    &:not(:first-child, :last-child) {
+      margin: func.spacer(0, 0, 1, 0);
+    }
+
+    &--link {
+      text-decoration: none;
+      font-weight: 700;
+      color: var.$color-link;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: var.$color-grey-light;
+      }
+    }
+  }
+}

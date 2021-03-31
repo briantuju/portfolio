@@ -1,0 +1,61 @@
+@use './variables';
+@use "sass:meta";
+@use "sass:list";
+
+/* 
+  When one value is specified, it applies the same padding to all four sides.
+  When two values are specified, the first padding applies to the top and 
+  bottom, the second to the left and right.
+  When three values are specified, the first padding applies to the top, 
+  the second to the right and left, the third to the bottom.
+  When four values are specified, the paddings apply to the top, right, 
+  bottom, and left in that order (clockwise).
+*/
+@function spacer($size: 1, $args...) {
+  // Set default padding to 1rem
+  $spacing: $size + rem;
+
+  /* 
+    Check if the args list has at least one item, else return.
+    To use list, we must import it at the top (sass:list)
+  */
+  @if list.index($args, 1) {
+    // Return for top and bottom sides respectively
+    @if length($args) == 2 {
+      $spacing: list.nth($args, 1) + rem list.nth($args, 2) + rem;
+      @return $spacing;
+    }
+
+    // Return for top, (right & left) and bottom sides respectively
+    @if length($args) == 3 {
+      $spacing: list.nth($args, 1) +
+        rem
+        list.nth($args, 2) +
+        rem
+        list.nth($args, 3) +
+        rem;
+      @return $spacing;
+    }
+
+    // Return for all sides
+    @if length($args) ==4 {
+      $spacing: list.nth($args, 1) +
+        rem
+        list.nth($args, 2) +
+        rem
+        list.nth($args, 3) +
+        rem
+        list.nth($args, 4) +
+        rem;
+      @return $spacing;
+    }
+
+    // Return the default (and warn)
+    @if length($args) >4 {
+      @warn "Maximum $arg... values is 4";
+      @return 0rem;
+    }
+  }
+
+  @return $spacing;
+}

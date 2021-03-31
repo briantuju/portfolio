@@ -1,0 +1,30 @@
+@use './variables' as var;
+@use './functions' as func;
+
+// App Header
+.header {
+  margin: func.spacer(0.5);
+}
+
+// App footer
+// .footer {}
+
+// App container
+.container {
+  width: 92%;
+  margin: 0 auto;
+}
+
+// Media Queries - Tablet
+@media (min-width: var.$tablet) {
+  .container {
+    width: 85%;
+  }
+}
+
+// Media Queries - Desktop
+@media (min-width: var.$desktop) {
+  .container {
+    width: 80%;
+  }
+}
