@@ -28,3 +28,12 @@
     }
   }
 }
+
+// Media Queries - Desktop
+@media (min-width: var.$desktop) {
+  .nav__item {
+    &:not(:first-child, :last-child) {
+      margin: 0 3rem 0;
+    }
+  }
+}

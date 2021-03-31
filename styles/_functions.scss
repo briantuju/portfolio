@@ -10,6 +10,8 @@
   the second to the right and left, the third to the bottom.
   When four values are specified, the paddings apply to the top, right, 
   bottom, and left in that order (clockwise).
+
+  TODO: Decimal values are not working correctly. Fix them.
 */
 @function spacer($size: 1, $args...) {
   // Set default padding to 1rem
@@ -38,7 +40,7 @@
     }
 
     // Return for all sides
-    @if length($args) ==4 {
+    @if length($args) == 4 {
       $spacing: list.nth($args, 1) +
         rem
         list.nth($args, 2) +
@@ -51,7 +53,7 @@
     }
 
     // Return the default (and warn)
-    @if length($args) >4 {
+    @if length($args) > 4 {
       @warn "Maximum $arg... values is 4";
       @return 0rem;
     }

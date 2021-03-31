@@ -1,0 +1,69 @@
+@use '../variables' as var;
+@use '../functions' as func;
+@use '../utils';
+
+// Profile component styles
+.profile {
+  padding: func.spacer(0.75);
+  margin: 2rem 0;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &--image {
+      @extend %img--avatar;
+    }
+
+    &--text {
+      flex-grow: 1;
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      box-shadow: var.$shadow;
+      border-radius: var.$brad-medium;
+    }
+  }
+
+  &__cta {
+    margin: 3rem 0 2rem;
+    text-align: center;
+  }
+}
+
+// Media Queries - Tablet
+@media (min-width: var.$tablet) {
+  .profile {
+    max-width: 80%;
+    margin: 1.5rem auto;
+
+    &__details {
+      flex-direction: row;
+      border-radius: var.$brad-big;
+      box-shadow: var.$shadow-big;
+      margin: 2rem 0 5rem 0;
+      padding: 2rem;
+
+      &--text {
+        margin: 0 0 0 1.5rem;
+        box-shadow: none;
+        border-radius: none;
+      }
+
+      &--image {
+        clip-path: none;
+        border-radius: 1rem 0 0 1rem;
+      }
+    }
+  }
+}
+
+// Media Queries - Desktop
+@media (min-width: var.$desktop) {
+  .profile {
+    max-width: 70%;
+    margin: 2rem auto;
+
+    // &__details{}
+  }
+}

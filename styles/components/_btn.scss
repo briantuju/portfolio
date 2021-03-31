@@ -1,0 +1,31 @@
+@use '../variables' as var;
+
+// Button component styles
+.btn {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 1.25rem 2rem;
+  border: none;
+  color: var.$color-white;
+  background-color: var.$color-black;
+  border-radius: var.$brad-huge;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: darken(var.$color-grey, 20);
+    transform: scale(1.05);
+    box-shadow: var.$shadow;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+}

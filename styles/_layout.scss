@@ -3,7 +3,8 @@
 
 // App Header
 .header {
-  margin: func.spacer(0.5);
+  padding: func.spacer(1);
+  box-shadow: var.$shadow;
 }
 
 // App footer
