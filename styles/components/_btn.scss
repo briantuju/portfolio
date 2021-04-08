@@ -13,6 +13,13 @@
   border-radius: var.$brad-huge;
   transition: all 0.3s ease-out;
 
+  &--link {
+    @extend .btn;
+    text-transform: none;
+    padding: 0.5rem 4rem;
+    text-decoration: none;
+  }
+
   &:hover {
     background-color: darken(var.$color-grey, 20);
     transform: scale(1.05);

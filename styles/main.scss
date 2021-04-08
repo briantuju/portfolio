@@ -6,6 +6,9 @@
 @use './utils';
 @use './variables';
 
+// Page styles
+@use './pages/projects';
+
 // Component specific styles
 @use './components/btn';
 @use './components/nav';

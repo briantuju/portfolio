@@ -1,14 +1,13 @@
 import Image from "next/image";
-import Button from "../Button";
-
-const imageUrl = process.env.NEXT_PUBLIC_PROFILE_IMAGE_URL;
+import Link from "next/link";
+import { env } from "../../utils/constants";
 
 export default function Profile() {
   return (
     <div className="profile">
       <div className="profile__details">
         <Image
-          src={imageUrl}
+          src={env.imageUrl}
           alt="Brian Tuju"
           width={400}
           height={300}
@@ -16,12 +15,14 @@ export default function Profile() {
         />
 
         <div className="profile__details--text">
-          Hey there. I'm a software developer and I love coding.
+          Hey there. I&apos;m a software developer and I love coding.
         </div>
       </div>
 
       <div className="profile__cta">
-        <Button>My Projects</Button>
+        <Link href="/projects">
+          <a className="btn--link">My Projects</a>
+        </Link>
       </div>
     </div>
   );

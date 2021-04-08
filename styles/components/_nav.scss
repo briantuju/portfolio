@@ -32,8 +32,11 @@
 // Media Queries - Desktop
 @media (min-width: var.$desktop) {
   .nav__item {
+    &--link {
+      font-size: larger;
+    }
     &:not(:first-child, :last-child) {
-      margin: 0 3rem 0;
+      margin: 0 5rem 0;
     }
   }
 }
