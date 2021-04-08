@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import { useProjects } from "../lib/projects";
-import Button from "../components/Button";
-import ProjectList from "../components/project/List";
+import LiveProjects from "../components/project/Live";
 
 const views = {
   all: "all",
@@ -12,23 +10,16 @@ const views = {
 };
 
 export default function Projects() {
-  // Fetch projects from server
-  const { data, error, loading } = useProjects();
-
   // Component state
   const [state, setState] = useState({
     view: views.all,
-    data: data ? data.data : null,
+    data: null,
   });
 
   const changeView = (e) => {
     const view = e.target.dataset.view;
     setState({ ...state, view });
   };
-
-  if (loading) return <p>Loading...</p>;
-
-  if (error) return null;
 
   return (
     <div className="projects">
@@ -68,10 +59,8 @@ export default function Projects() {
       </nav>
 
       <div className="projects__panel">
-        <p>Projects Panel</p>
+        <LiveProjects />
       </div>
-
-      {/* <ProjectList projects={data.data} /> */}
     </div>
   );
 }

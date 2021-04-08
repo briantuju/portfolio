@@ -1,0 +1,47 @@
+@use '../variables' as var;
+@use '../flex' as *;
+
+.project-grid {
+  @extend .flex;
+
+  &__item {
+    @extend .flex--1-of-2;
+    box-shadow: var.$shadow;
+    margin-bottom: 2rem;
+
+    // &-img {
+    // }
+
+    &-title {
+      margin: 1rem 0;
+      padding: 0 1rem;
+    }
+
+    &-tech-stack {
+      @extend .flex;
+      padding: 0 1rem;
+      margin-bottom: 0.5rem;
+      justify-content: left;
+
+      * {
+        padding: 0.15rem 0.4rem;
+        background-color: var.$color-light;
+        border-radius: var.$brad-small;
+
+        &:not(:first-child, :last-child) {
+          margin: 0 1.5rem;
+        }
+      }
+    }
+
+    &-summary {
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+    }
+
+    &-links {
+      padding: 0 1rem;
+      margin: 1rem 0;
+    }
+  }
+}

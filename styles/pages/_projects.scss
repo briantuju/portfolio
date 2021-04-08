@@ -4,10 +4,17 @@
 .projects {
   @extend .flex;
   padding: 2rem 0;
+  position: relative;
 
   &__nav {
     @extend .flex--1-of-4;
     background-color: lighten(var.$color-light, 4);
+    height: 100%;
+    position: sticky;
+    top: 1rem;
+    left: 0;
+    z-index: 100;
+    box-shadow: var.$shadow-big;
 
     &-item {
       width: 100%;
@@ -16,6 +23,7 @@
       cursor: pointer;
       text-align: left;
       padding: 1rem 1.5rem;
+      font-weight: 700;
       background-color: transparent;
 
       &:not(:first-child, :last-child) {
@@ -33,16 +41,17 @@
 
   &__panel {
     @extend .flex--3-of-4;
-    background-color: var.$color-grey-light;
-    padding: 2rem;
     margin-top: 2rem;
-    // flex-grow: 1;
   }
 }
 
 // Tablet
 @media screen and (min-width: var.$tablet) {
   .projects {
+    &__nav {
+      box-shadow: none;
+    }
+
     &__panel {
       margin-top: 0;
     }
