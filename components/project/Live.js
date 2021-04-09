@@ -38,7 +38,7 @@ export default function LiveProjects() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>An error occured</p>;
-  if (data && data.length === 0) return <p>No projects available</p>;
+  if (data && data.data.length === 0) return <p>No projects available</p>;
 
   return (
     <div className="project-grid">
