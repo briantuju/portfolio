@@ -1,3 +1,5 @@
+@use './variables' as var;
+
 %img {
   max-width: 100%;
   height: auto;
@@ -5,5 +7,16 @@
   &--avatar {
     @extend %img;
     clip-path: circle();
+  }
+}
+
+// Text variants
+.text {
+  &--danger {
+    color: var.$color-red;
+  }
+
+  &--success {
+    color: var.$color-green;
   }
 }

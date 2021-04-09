@@ -7,11 +7,14 @@
 @use './variables';
 
 // Page styles
+@use './pages/contact';
 @use './pages/projects';
 
 // Component specific styles
 @use './components/btn';
+@use './components/form';
 @use './components/ion_icon';
+@use './components/loading';
 @use './components/nav';
 @use './components/profile';
 @use './components/project';

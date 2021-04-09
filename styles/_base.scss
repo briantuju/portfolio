@@ -1,4 +1,4 @@
-@use './variables';
+@use './variables' as var;
 
 *,
 *::after,
@@ -8,15 +8,20 @@
   box-sizing: inherit;
 }
 
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: var.$color-grey-light;
+}
+
 html {
   font-size: 75%;
   scroll-behavior: smooth;
 }
 
 body {
-  font: variables.$default-font-size "Lato", sans-serif;
-  color: variables.$color-dark;
-  background-color: variables.$color-white;
+  font: var.$default-font-size "Lato", sans-serif;
+  color: var.$color-dark;
+  background-color: var.$color-white;
   box-sizing: border-box;
   line-height: 1.7;
   height: 100%;

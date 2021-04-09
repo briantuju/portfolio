@@ -9,8 +9,8 @@
   padding: 1.25rem 2rem;
   border: none;
   color: var.$color-white;
-  background-color: var.$color-black;
-  border-radius: var.$brad-huge;
+  background-color: var.$color-link;
+  border-radius: var.$brad-small;
   transition: all 0.3s ease-out;
 
   &--link {
@@ -21,18 +21,23 @@
   }
 
   &:hover {
-    background-color: darken(var.$color-grey, 20);
-    transform: scale(1.05);
+    background-color: var.$color-black;
     box-shadow: var.$shadow;
   }
 
   &:focus,
   &:active {
+    transform: scale(0.98);
     outline: none;
   }
 
   &:active {
-    transform: translateY(2px);
     box-shadow: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var.$color-grey-dark;
+    background-color: rgba($color: var.$color-grey-light, $alpha: 0.7);
   }
 }

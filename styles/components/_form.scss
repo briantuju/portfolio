@@ -1,0 +1,77 @@
+@use '../variables' as var;
+
+// Form
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: var.$brad-small;
+  background-color: transparent;
+
+  // Form title
+  &__title {
+    font-weight: 700;
+  }
+
+  // Form input
+  &__input {
+    padding: 1rem 0.5rem;
+    color: var.$color-grey-dark;
+    font-size: var.$default-font-size;
+    width: 100%;
+    border-radius: var.$brad-tiny;
+    outline: none;
+
+    &--edit {
+      @extend .form__input;
+      border: 2px solid transparent;
+      background-color: lighten($color: var.$color-grey-light, $amount: 5);
+
+      &:hover {
+        border-color: var.$color-grey-light;
+      }
+
+      &:focus {
+        border-color: var.$color-grey-dark;
+        background-color: var.$color-white;
+      }
+    }
+
+    &:focus,
+    &:active {
+      border-color: var.$color-dark;
+    }
+  }
+
+  // Form group
+  &__group {
+    margin: 0.5rem 0;
+  }
+
+  // Form label
+  &__label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  // Form textarea
+  // &__textarea {
+  // }
+
+  // Form checkbox
+  &__checkbox {
+    margin-right: 1rem;
+  }
+
+  // Form select
+  // &__select {
+  // }
+
+  // Form button
+  & > *.btn {
+    width: max-content;
+    margin: 0.75rem 0;
+  }
+}

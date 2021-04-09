@@ -1,0 +1,29 @@
+@use '../variables' as var;
+@use '../components/form' as form;
+
+.contact-form {
+  @extend .form;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 600px;
+  box-shadow: var.$shadow;
+
+  .form__label {
+    color: darken(var.$color-grey, 15);
+  }
+
+  .form__input {
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+    background-color: var.$color-light;
+
+    &:hover,
+    &:focus {
+      border-color: darken(var.$color-light, 5);
+    }
+
+    &:focus {
+      background-color: var.$color-white;
+    }
+  }
+}
