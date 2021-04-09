@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import LiveProjects from "../components/project/Live";
+import DesignProjects from "../components/project/Design";
 
 const views = {
   all: "all",
@@ -59,7 +60,9 @@ export default function Projects() {
       </nav>
 
       <div className="projects__panel">
-        <LiveProjects />
+        {state.view === views.all && <LiveProjects />}
+
+        {state.view === views.design && <DesignProjects />}
       </div>
     </div>
   );

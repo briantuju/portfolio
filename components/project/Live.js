@@ -15,7 +15,7 @@ const LiveProjectsPreview = ({ data }) => {
         layout="intrinsic"
         className="project-grid__item-img"
       />
-      <h3 className="project-grid__item-title">{name}</h3>
+      <h4 className="project-grid__item-title">{name}</h4>
 
       <p className="project-grid__item-tech-stack">
         {techStack.map((stack, i) => {

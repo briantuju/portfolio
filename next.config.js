@@ -7,6 +7,6 @@ module.exports = {
   },
   // Options for next/image
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: ["res.cloudinary.com", "images.ctfassets.net"],
   },
 };
