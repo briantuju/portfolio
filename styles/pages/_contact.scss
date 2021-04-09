@@ -8,6 +8,16 @@
   max-width: 600px;
   box-shadow: var.$shadow;
 
+  &-msg {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    font-weight: 700;
+    color: var.$color-green;
+    max-width: max-content;
+    border-radius: var.$brad-small;
+    background-color: lighten(var.$color-light, 2);
+  }
+
   .form__label {
     color: darken(var.$color-grey, 15);
   }
