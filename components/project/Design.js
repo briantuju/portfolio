@@ -10,16 +10,16 @@ export const DesignProjectsPreview = ({ data }) => {
   } = data;
 
   return (
-    <div className="project-grid__item">
+    <div className="project--design">
       <Image
         src={`https:${url}`}
         alt={fileName}
-        width={320}
-        height={220}
+        width={420}
+        height={300}
         layout="intrinsic"
-        className="project-grid__item-img"
+        className="project--design-img"
       />
-      <h4 className="project-grid__item-title">{title}</h4>
+      <h4 className="project--design-title">{title}</h4>
     </div>
   );
 };
@@ -56,15 +56,15 @@ export default function DesignProjects() {
 
   if (state.error) return <p>An error occured.</p>;
 
+  if (state.data && state.data.length === 0) {
+    return <p>No design files found</p>;
+  }
+
   return (
-    <>
-      {state.data.length === 0 ? (
-        <p>No design files found</p>
-      ) : (
-        state.data.map((item) => (
-          <DesignProjectsPreview key={item.sys.id} data={item.fields} />
-        ))
-      )}
-    </>
+    <div className="project-grid">
+      {state.data.map((item) => (
+        <DesignProjectsPreview key={item.sys.id} data={item.fields} />
+      ))}
+    </div>
   );
 }

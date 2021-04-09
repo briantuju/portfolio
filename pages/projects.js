@@ -2,11 +2,12 @@ import Head from "next/head";
 import { useState } from "react";
 import LiveProjects from "../components/project/Live";
 import DesignProjects from "../components/project/Design";
+import GithubProjects from "../components/project/Github";
 
 const views = {
-  live: "live",
-  design: "design",
-  projects: "projects",
+  live: "LIVE_PROJECTS",
+  design: "DESIGN_PROJECTS",
+  github: "GITHUB_PROJECTS",
 };
 
 export default function Projects() {
@@ -39,7 +40,7 @@ export default function Projects() {
         <button
           className="projects__nav-item"
           onClick={changeView}
-          data-view={views.projects}
+          data-view={views.github}
         >
           Github Projects
         </button>
@@ -49,7 +50,7 @@ export default function Projects() {
           onClick={changeView}
           data-view={views.design}
         >
-          Design Files
+          Design Projects
         </button>
       </nav>
 
@@ -57,6 +58,8 @@ export default function Projects() {
         {state.view === views.live && <LiveProjects />}
 
         {state.view === views.design && <DesignProjects />}
+
+        {state.view === views.github && <GithubProjects />}
       </div>
     </div>
   );

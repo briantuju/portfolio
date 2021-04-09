@@ -6,18 +6,18 @@ const LiveProjectsPreview = ({ data }) => {
   const { name, image, summary, links, techStack } = data;
 
   return (
-    <div className="project-grid__item">
+    <div className="project--live">
       <Image
         src={image}
         alt={name}
         width={350}
         height={250}
         layout="intrinsic"
-        className="project-grid__item-img"
+        className="project--live-img"
       />
-      <h4 className="project-grid__item-title">{name}</h4>
+      <h4 className="project--live-title">{name}</h4>
 
-      <p className="project-grid__item-tech-stack">
+      <p className="project--live-tech-stack">
         {techStack.map((stack, i) => {
           if (stack.length > 0) {
             return <span key={stack + i}>{stack}</span>;
@@ -25,11 +25,9 @@ const LiveProjectsPreview = ({ data }) => {
         })}
       </p>
 
-      <p className="project-grid__item-summary">{summary}</p>
+      <p className="project--live-summary">{summary}</p>
 
-      <p className="project-grid__item-links">
-        {JSON.stringify(links, null, 2)}
-      </p>
+      <p className="project--live-links">{JSON.stringify(links, null, 2)}</p>
     </div>
   );
 };

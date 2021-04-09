@@ -1,0 +1,8 @@
+@use '../variables' as var;
+
+.ion-icon {
+  display: inline-block;
+  background-color: var.$color-light;
+  padding: 0.4rem 0.25rem 0.25rem 0.25rem;
+  clip-path: circle();
+}

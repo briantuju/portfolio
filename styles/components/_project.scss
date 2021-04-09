@@ -4,17 +4,16 @@
 .project-grid {
   @extend .flex;
 
-  &__item {
+  .project--live,
+  .project--design {
     @extend .flex--1-of-2;
     box-shadow: var.$shadow;
     margin-bottom: 2rem;
 
-    // &-img {
-    // }
-
     &-title {
       margin: 0 1rem 1rem 0;
       padding: 0 1rem;
+      color: darken(var.$color-grey, 15);
     }
 
     &-tech-stack {
@@ -42,6 +41,57 @@
     &-links {
       padding: 0 1rem;
       margin: 1rem 0;
+    }
+  }
+
+  .project--github {
+    @extend .flex--1-of-3;
+    position: relative;
+    padding: 1rem 1rem 1rem 2rem;
+    margin-bottom: 2rem;
+    border: var.$border-small;
+    border-radius: var.$brad-small;
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      content: "";
+      height: 80%;
+      width: 0.35rem;
+      position: absolute;
+      left: 0;
+      background-color: var.$color-primary;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(0.98);
+    }
+
+    &:hover::before {
+      height: 65%;
+    }
+
+    &-title {
+      color: darken(var.$color-grey, 15);
+    }
+
+    &-details {
+      span[class*="project--github-details-"] {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      strong {
+        color: darken(var.$color-grey, 15);
+      }
+
+      &-link {
+        display: inline-block;
+        padding: 0.15rem 1rem;
+        border-radius: var.$brad-small;
+        background-color: lighten(var.$color-light, 3);
+        color: var.$color-link;
+      }
     }
   }
 }
