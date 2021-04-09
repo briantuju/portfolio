@@ -4,17 +4,16 @@ import LiveProjects from "../components/project/Live";
 import DesignProjects from "../components/project/Design";
 
 const views = {
-  all: "all",
-  projects: "projects",
   live: "live",
   design: "design",
+  projects: "projects",
 };
 
 export default function Projects() {
   // Component state
   const [state, setState] = useState({
-    view: views.all,
     data: null,
+    view: views.live,
   });
 
   const changeView = (e) => {
@@ -32,10 +31,11 @@ export default function Projects() {
         <button
           className="projects__nav-item"
           onClick={changeView}
-          data-view={views.all}
+          data-view={views.live}
         >
-          All Projects
+          Live Projects
         </button>
+
         <button
           className="projects__nav-item"
           onClick={changeView}
@@ -43,13 +43,7 @@ export default function Projects() {
         >
           Github Projects
         </button>
-        <button
-          className="projects__nav-item"
-          onClick={changeView}
-          data-view={views.live}
-        >
-          Live Projects
-        </button>
+
         <button
           className="projects__nav-item"
           onClick={changeView}
@@ -60,7 +54,7 @@ export default function Projects() {
       </nav>
 
       <div className="projects__panel">
-        {state.view === views.all && <LiveProjects />}
+        {state.view === views.live && <LiveProjects />}
 
         {state.view === views.design && <DesignProjects />}
       </div>
