@@ -1,20 +1,20 @@
 /* eslint-disable react/prop-types */
 import Head from "next/head";
+import { useState } from "react";
 import { Form, Formik } from "formik";
-import schemas, { objSchema } from "../utils/schemas";
 import { fetcher } from "../lib/api";
+import { env } from "../utils/constants";
+import schemas, { objSchema } from "../utils/schemas";
 import TextAreaInput from "../components/formik/TextAreaInput";
 import TextInput from "../components/formik/TextInput";
 import Button from "../components/Button";
 
-const ContactForm = ({ handleSubmit }) => {
+const ContactForm = ({ handleSubmit, formState }) => {
+  const { msg, error } = formState;
+
   return (
     <Formik
-      initialValues={{
-        name: "Brian",
-        email: "brian@mail.com",
-        comment: "Hello! This is a test message",
-      }}
+      initialValues={{ name: "", email: "", comment: "" }}
       validationSchema={objSchema({
         email: schemas.email,
         name: schemas.name,
@@ -24,20 +24,44 @@ const ContactForm = ({ handleSubmit }) => {
     >
       {(formik) => (
         <Form className="contact-form">
-          <TextInput label="Full Name" name="name" />
+          <TextInput
+            label="Full Name"
+            name="name"
+            placeholder="John Doe"
+            disabled={
+              formik.isSubmitting || (formik.submitCount >= 1 && !error)
+            }
+          />
 
-          <TextInput label="Email" name="email" type="email" />
+          <TextInput
+            label="Email"
+            name="email"
+            placeholder="user@email.domain"
+            type="email"
+            disabled={
+              formik.isSubmitting || (formik.submitCount >= 1 && !error)
+            }
+          />
 
           <TextAreaInput
             label="Enter message"
             placeholder="Type your message here"
             name="comment"
+            disabled={
+              formik.isSubmitting || (formik.submitCount >= 1 && !error)
+            }
           />
+
+          {msg && !error && <p className="contact-form-msg">{msg}</p>}
+          {msg && error && <p className="contact-form-msg-err">{msg}</p>}
 
           <Button
             type="submit"
             isLoading={formik.isSubmitting}
-            disabled={!(formik.isValid && formik.dirty)}
+            disabled={
+              !(formik.isValid && formik.dirty) ||
+              (formik.submitCount >= 1 && !error)
+            }
           >
             Send message
           </Button>
@@ -48,12 +72,16 @@ const ContactForm = ({ handleSubmit }) => {
 };
 
 export default function Contact() {
+  const [formState, setFormState] = useState({ msg: null, error: false });
+
   const handleContactReq = async (values) => {
     try {
-      const data = await fetcher("/api", values, "POST");
-      console.log(data);
+      setFormState({ msg: null, error: false });
+      const data = await fetcher(env.apiUrl + "contact", values, "POST");
+
+      setFormState({ msg: data.msg });
     } catch (error) {
-      console.log(error);
+      setFormState({ msg: error.message, error: true });
     }
   };
 
@@ -63,7 +91,7 @@ export default function Contact() {
         <title>Contact</title>
       </Head>
 
-      <ContactForm handleSubmit={handleContactReq} />
+      <ContactForm handleSubmit={handleContactReq} formState={formState} />
     </div>
   );
 }

@@ -16,6 +16,11 @@
     max-width: max-content;
     border-radius: var.$brad-small;
     background-color: lighten(var.$color-light, 2);
+
+    &-err {
+      @extend .contact-form-msg;
+      color: var.$color-red;
+    }
   }
 
   .form__label {

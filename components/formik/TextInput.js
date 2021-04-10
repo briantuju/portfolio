@@ -18,8 +18,6 @@ const TextInput = ({
   const [field, meta] = useField(props);
   const showErr = meta.touched && meta.error ? true : false;
 
-  const randomNum = Math.random() * 100;
-
   return (
     <div className="form__group">
       <label className="form__label" htmlFor={props.id || props.name}>
@@ -28,11 +26,10 @@ const TextInput = ({
 
       <input
         className={`form__input${edit ? "--edit" : ""} border ${
-          showErr ? " border--danger shadow--none " : ""
+          showErr ? " border--danger" : ""
         } ${className ? className : ""}`}
         type={type}
         title={edit ? "Click to edit" : ""}
-        data-pwd-id={type === "password" && randomNum.toString()}
         id={props.id ? props.id : props.name}
         {...field}
         {...props}

@@ -20,3 +20,17 @@
     color: var.$color-green;
   }
 }
+
+// Border
+.border {
+  border: var.$border-small;
+
+  // Border modifiers
+  &--danger {
+    border-color: var.$color-red;
+  }
+
+  &--success {
+    border-color: var.$color-green;
+  }
+}
