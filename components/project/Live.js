@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useProjects } from "../../lib/projects";
 
 const LiveProjectsPreview = ({ data }) => {
-  const { name, image, summary, links, techStack } = data;
+  const { name, image, summary, link, techStack } = data;
 
   return (
     <div className="project--live">
@@ -27,7 +27,11 @@ const LiveProjectsPreview = ({ data }) => {
 
       <p className="project--live-summary">{summary}</p>
 
-      <p className="project--live-links">{JSON.stringify(links, null, 2)}</p>
+      <p className="project--live-link">
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          View Project
+        </a>
+      </p>
     </div>
   );
 };
