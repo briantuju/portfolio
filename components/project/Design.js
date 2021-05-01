@@ -57,7 +57,9 @@ export default function DesignProjects() {
   if (state.error) return <p>An error occured.</p>;
 
   if (state.data && state.data.length === 0) {
-    return <p>No design files found</p>;
+    return (
+      <p className="no-items">I haven&apos;t uploaded any design file yet</p>
+    );
   }
 
   return (

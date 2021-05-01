@@ -34,3 +34,13 @@
     border-color: var.$color-green;
   }
 }
+
+// No items found
+.no-items {
+  padding: 1rem;
+  color: var.$color-white;
+  border-radius: 1rem;
+  background-color: var.$color-grey;
+  display: inline-block;
+  box-shadow: var.$shadow;
+}
