@@ -1,0 +1,28 @@
+@use '../variables' as var;
+@use '../flex' as flex;
+
+// Social section styles
+.social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+
+  &__title {
+    color: var.$color-grey-dark;
+    margin-bottom: 1.5rem;
+  }
+
+  &__items {
+    &-item {
+      display: inline-block;
+      color: var.$color-link;
+      background-color: transparent;
+
+      &:not(:first-child) {
+        margin-left: 2rem;
+      }
+    }
+  }
+}

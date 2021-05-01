@@ -10,7 +10,7 @@ export default function index({ children }) {
     <>
       <Header />
 
-      <div className="container">{children}</div>
+      <div className="container layout">{children}</div>
     </>
   );
 }

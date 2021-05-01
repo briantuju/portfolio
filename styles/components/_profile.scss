@@ -26,7 +26,7 @@
   }
 
   &__cta {
-    margin: 3rem 0 2rem;
+    margin: 3rem 0 0;
     text-align: center;
   }
 }
@@ -47,7 +47,6 @@
       &--text {
         margin: 0 0 0 1.5rem;
         box-shadow: none;
-        border-radius: none;
       }
 
       &--image {
@@ -63,7 +62,5 @@
   .profile {
     max-width: 70%;
     margin: 2rem auto;
-
-    // &__details{}
   }
 }

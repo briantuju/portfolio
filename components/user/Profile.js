@@ -1,6 +1,34 @@
+import unified from "unified";
+import parse from "remark-parse";
+import remark2react from "remark-react";
 import Image from "next/image";
 import Link from "next/link";
 import { env } from "../../utils/constants";
+import customLink from "../../utils/customLink";
+
+const markdown = `
+💻️ \`Software Developer\` 🖥️
+
+---
+I'm a software developer with **over 2 years**
+building impactful software, except when I'm hungry 😔️.
+
+My tech stack include **JavaScript**, **React**, **Python**, **PHP/MySQL**
+and other's I'm afraid to mention 😂️.
+`;
+
+const MarkdownText = () => {
+  const content = unified()
+    .use(parse)
+    .use(remark2react, {
+      remarkReactComponents: {
+        a: customLink,
+      },
+    })
+    .processSync(markdown).result;
+
+  return <> {content} </>;
+};
 
 export default function Profile() {
   return (
@@ -15,7 +43,7 @@ export default function Profile() {
         />
 
         <div className="profile__details--text">
-          Hey there. I&apos;m a software developer and I love coding.
+          <MarkdownText />
         </div>
       </div>
 
