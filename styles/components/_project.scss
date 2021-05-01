@@ -38,9 +38,16 @@
       margin-bottom: 1rem;
     }
 
-    &-links {
+    &-link {
       padding: 0 1rem;
       margin: 1rem 0;
+
+      a {
+        background: var.$color-light;
+        color: var.$color-link;
+        padding: 0.5rem;
+        border-radius: 5px;
+      }
     }
   }
 

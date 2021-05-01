@@ -30,7 +30,7 @@
   .form__input {
     transition: all 0.2s ease-in-out;
     border: 2px solid transparent;
-    background-color: var.$color-light;
+    background-color: lighten(var.$color-light, 4);
 
     &:hover,
     &:focus {
