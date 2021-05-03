@@ -16,6 +16,11 @@
       color: darken(var.$color-grey, 15);
     }
 
+    &-description {
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+    }
+
     &-tech-stack {
       @extend .flex;
       padding: 0 1rem;

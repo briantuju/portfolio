@@ -4,8 +4,10 @@ import { retrieveDesignAssets } from "../../lib/contentful";
 
 /* eslint-disable react/prop-types */
 export const DesignProjectsPreview = ({ data }) => {
+  console.log(data);
   const {
     title,
+    description,
     file: { url, fileName },
   } = data;
 
@@ -20,6 +22,21 @@ export const DesignProjectsPreview = ({ data }) => {
         className="project--design-img"
       />
       <h4 className="project--design-title">{title}</h4>
+
+      {description && (
+        <p className="project--design-description">{description}</p>
+      )}
+
+      <p className="project--design-link">
+        <a
+          href={`https:${url}`}
+          download
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View asset
+        </a>
+      </p>
     </div>
   );
 };
